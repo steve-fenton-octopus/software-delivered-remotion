@@ -24,11 +24,25 @@ export const YouTubeIntro: React.FC = () => {
     config: {damping: 14, stiffness: 100},
   });
   const titleProgress = spring({
-    frame: frame - 8,
+    frame: frame - 30,
     fps,
     config: {damping: 13, stiffness: 125},
   });
-  const titleOpacity = interpolate(frame, [8, 17], [0, 1], {
+  const tiltProgress = spring({
+    frame: frame - 78,
+    fps,
+    config: {damping: 18, stiffness: 90},
+  });
+  const slideProgress = spring({
+    frame: frame - 87,
+    fps,
+    config: {damping: 18, stiffness: 90},
+  });
+  const impactBounce = interpolate(frame, [78, 81, 86, 91], [0, -64, 16, 0], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const titleOpacity = interpolate(frame, [30, 39], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
@@ -87,7 +101,7 @@ export const YouTubeIntro: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           opacity: titleOpacity,
-          transform: `translateY(${interpolate(titleProgress, [0, 1], [-36, 0])}px) rotate(-3deg)`,
+          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -440])}px, ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 283]) + impactBounce}px) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
         }}
       >
         <div
@@ -95,14 +109,14 @@ export const YouTubeIntro: React.FC = () => {
             position: 'relative',
             color: '#fff',
             fontFamily,
-            fontSize: 142,
+            fontSize: 185,
             lineHeight: 1.1,
             letterSpacing: 1,
             whiteSpace: 'nowrap',
-            WebkitTextStroke: '9px #05070a',
+            WebkitTextStroke: '12px #05070a',
             paintOrder: 'stroke fill',
             textShadow:
-              '5px 5px 0 #05070a, 8px 8px 0 #05070a, 11px 11px 0 #05070a',
+              '6px 6px 0 #05070a, 11px 11px 0 #05070a, 16px 16px 0 #05070a, 21px 21px 0 #05070a',
           }}
         >
           {title}
