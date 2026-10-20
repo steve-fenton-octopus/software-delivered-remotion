@@ -62,8 +62,8 @@ export const YouTubeIntro: React.FC = () => {
       <AbsoluteFill
         style={{
           backgroundImage:
-            'radial-gradient(circle at 6.3px 6.3px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px), radial-gradient(circle at 18.9px 18.9px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px)',
-          backgroundSize: '25.2px 25.2px',
+            'radial-gradient(circle at 7px 7px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px), radial-gradient(circle at 21px 21px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px)',
+          backgroundSize: '28px 28px',
           backgroundPosition: '0 0',
         }}
       />
@@ -79,7 +79,7 @@ export const YouTubeIntro: React.FC = () => {
           height="100%"
           viewBox="0 0 1920 1080"
           width="100%"
-          preserveAspectRatio="none"
+          preserveAspectRatio="xMidYMid meet"
           style={{
             transform: `translateY(${interpolate(arrowProgress, [0, 1], [1100, 0])}px) scale(1.1)`,
             transformOrigin: 'center center',
@@ -87,14 +87,14 @@ export const YouTubeIntro: React.FC = () => {
         >
           <defs>
             <pattern
-              height="25.2"
+              height="28"
               id="arrow-dots"
               patternUnits="userSpaceOnUse"
-              width="25.2"
+              width="28"
             >
-              <rect fill="#1675e5" height="25.2" width="25.2" />
-              <circle cx="6.3" cy="6.3" fill="#0757bd" fillOpacity="0.72" r="7" />
-              <circle cx="18.9" cy="18.9" fill="#0757bd" fillOpacity="0.72" r="7" />
+              <rect fill="#1675e5" height="28" width="28" />
+              <circle cx="7" cy="7" fill="#0757bd" fillOpacity="0.72" r="7" />
+              <circle cx="21" cy="21" fill="#0757bd" fillOpacity="0.72" r="7" />
             </pattern>
           </defs>
           <path
