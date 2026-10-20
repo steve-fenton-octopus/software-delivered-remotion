@@ -42,6 +42,11 @@ export const YouTubeIntro: React.FC = () => {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
+  const exitProgress = interpolate(frame, [150, 195], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const exitTravel = exitProgress * exitProgress;
   const titleOpacity = interpolate(frame, [30, 39], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -101,7 +106,7 @@ export const YouTubeIntro: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           opacity: titleOpacity,
-          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -440])}px, ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 283]) + impactBounce}px) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
+          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -440]) - 1100 * exitTravel}px, ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 283]) + impactBounce + 693 * exitTravel}px) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
         }}
       >
         <div
