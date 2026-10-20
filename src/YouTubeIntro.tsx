@@ -19,9 +19,9 @@ export const YouTubeIntro: React.FC = () => {
   const {fps} = useVideoConfig();
 
   const arrowProgress = spring({
-    frame,
+    frame: frame - 60,
     fps,
-    config: {damping: 16, stiffness: 85},
+    config: {damping: 14, stiffness: 100},
   });
   const titleProgress = spring({
     frame: frame - 8,
@@ -38,8 +38,8 @@ export const YouTubeIntro: React.FC = () => {
       <AbsoluteFill
         style={{
           backgroundImage:
-            'radial-gradient(circle, rgba(0, 133, 205, 0.22) 5px, transparent 5.5px)',
-          backgroundSize: '18px 18px',
+            'radial-gradient(circle at 6.3px 6.3px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px), radial-gradient(circle at 18.9px 18.9px, rgba(0, 133, 205, 0.16) 7px, transparent 7.35px)',
+          backgroundSize: '25.2px 25.2px',
           backgroundPosition: '0 0',
         }}
       />
@@ -53,19 +53,20 @@ export const YouTubeIntro: React.FC = () => {
         style={{
           position: 'absolute',
           inset: 0,
-          transform: `translateY(${interpolate(arrowProgress, [0, 1], [45, 0])}px) scale(${interpolate(arrowProgress, [0, 1], [0.96, 1])})`,
+          transform: `translateY(${interpolate(arrowProgress, [0, 1], [1100, 0])}px) scale(1.1)`,
           transformOrigin: 'center center',
         }}
       >
         <defs>
           <pattern
-            height="18"
+            height="25.2"
             id="arrow-dots"
             patternUnits="userSpaceOnUse"
-            width="18"
+            width="25.2"
           >
-            <rect fill="#1675e5" height="18" width="18" />
-            <circle cx="9" cy="9" fill="#0757bd" r="5" />
+            <rect fill="#1675e5" height="25.2" width="25.2" />
+            <circle cx="6.3" cy="6.3" fill="#0757bd" fillOpacity="0.72" r="7" />
+            <circle cx="18.9" cy="18.9" fill="#0757bd" fillOpacity="0.72" r="7" />
           </pattern>
         </defs>
         <path
