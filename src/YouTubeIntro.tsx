@@ -29,7 +29,7 @@ export const YouTubeIntro: React.FC = () => {
     config: {damping: 13, stiffness: 125},
   });
   const tiltProgress = spring({
-    frame: frame - 78,
+    frame: frame - 70,
     fps,
     config: {damping: 18, stiffness: 90},
   });
@@ -38,7 +38,7 @@ export const YouTubeIntro: React.FC = () => {
     fps,
     config: {damping: 18, stiffness: 90},
   });
-  const impactBounce = interpolate(frame, [78, 81, 86, 91], [0, -64, 16, 0], {
+  const impactBounce = interpolate(frame, [70, 73, 78, 83], [0, -64, 16, 0], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
