@@ -47,6 +47,11 @@ export const YouTubeIntro: React.FC = () => {
     extrapolateRight: 'clamp',
   });
   const exitTravel = exitProgress * exitProgress;
+  const chevronExitProgress = interpolate(frame, [195, 225], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
+  const chevronDrop = chevronExitProgress ** 3 * 2200;
   const titleOpacity = interpolate(frame, [30, 39], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -63,39 +68,44 @@ export const YouTubeIntro: React.FC = () => {
         }}
       />
 
-      <svg
-        aria-hidden
-        height="100%"
-        viewBox="0 0 1920 1080"
-        width="100%"
-        preserveAspectRatio="none"
+      <AbsoluteFill
         style={{
-          position: 'absolute',
-          inset: 0,
-          transform: `translateY(${interpolate(arrowProgress, [0, 1], [1100, 0])}px) scale(1.1)`,
-          transformOrigin: 'center center',
+          transform: `translateY(${chevronDrop}px) rotate(${chevronExitProgress * 45}deg)`,
+          transformOrigin: 'left bottom',
         }}
       >
-        <defs>
-          <pattern
-            height="25.2"
-            id="arrow-dots"
-            patternUnits="userSpaceOnUse"
-            width="25.2"
-          >
-            <rect fill="#1675e5" height="25.2" width="25.2" />
-            <circle cx="6.3" cy="6.3" fill="#0757bd" fillOpacity="0.72" r="7" />
-            <circle cx="18.9" cy="18.9" fill="#0757bd" fillOpacity="0.72" r="7" />
-          </pattern>
-        </defs>
-        <path
-          d="M 960 238 L 1920 842 L 1920 1080 L 0 1080 L 0 842 Z"
-          fill="url(#arrow-dots)"
-          stroke="#05070a"
-          strokeLinejoin="round"
-          strokeWidth="14"
-        />
-      </svg>
+        <svg
+          aria-hidden
+          height="100%"
+          viewBox="0 0 1920 1080"
+          width="100%"
+          preserveAspectRatio="none"
+          style={{
+            transform: `translateY(${interpolate(arrowProgress, [0, 1], [1100, 0])}px) scale(1.1)`,
+            transformOrigin: 'center center',
+          }}
+        >
+          <defs>
+            <pattern
+              height="25.2"
+              id="arrow-dots"
+              patternUnits="userSpaceOnUse"
+              width="25.2"
+            >
+              <rect fill="#1675e5" height="25.2" width="25.2" />
+              <circle cx="6.3" cy="6.3" fill="#0757bd" fillOpacity="0.72" r="7" />
+              <circle cx="18.9" cy="18.9" fill="#0757bd" fillOpacity="0.72" r="7" />
+            </pattern>
+          </defs>
+          <path
+            d="M 960 238 L 1920 842 L 1920 1080 L 0 1080 L 0 842 Z"
+            fill="url(#arrow-dots)"
+            stroke="#05070a"
+            strokeLinejoin="round"
+            strokeWidth="14"
+          />
+        </svg>
+      </AbsoluteFill>
 
       <div
         style={{
