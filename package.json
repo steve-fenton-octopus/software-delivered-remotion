@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "remotion studio src/index.ts",
     "build": "remotion render src/index.ts YouTubeIntro out/intro.mp4",
+    "build:portrait": "remotion render src/index.ts YouTubeIntroPortrait out/intro-portrait.mp4",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
