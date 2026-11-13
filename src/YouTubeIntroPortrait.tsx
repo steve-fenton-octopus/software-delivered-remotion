@@ -117,7 +117,7 @@ export const YouTubeIntroPortrait: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           opacity: titleOpacity,
-          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -180]) - 1080 * exitTravel}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 118]) + impactBounce - 90 + 1200 * exitTravel}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
+          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -180]) - 1080 * exitTravel}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 118]) + impactBounce - 50 + 1200 * exitTravel}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -33.3])}deg)`,
         }}
       >
         <div
