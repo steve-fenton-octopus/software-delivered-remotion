@@ -47,6 +47,10 @@ export const YouTubeIntroPortrait: React.FC = () => {
     extrapolateRight: 'clamp',
   });
   const exitTravel = exitProgress * exitProgress;
+  const titleSlideX = interpolate(slideProgress, [0, 1], [0, -180]);
+  const titleSlideY = interpolate(slideProgress, [0, 1], [0, 118]);
+  const titleExitX = 1080 * exitTravel;
+  const titleExitY = titleExitX * (118 / 180);
   const chevronExitProgress = interpolate(frame, [195, 225], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -117,7 +121,7 @@ export const YouTubeIntroPortrait: React.FC = () => {
           display: 'flex',
           justifyContent: 'center',
           opacity: titleOpacity,
-          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -180]) - 1080 * exitTravel}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 118]) + impactBounce - 50 + 1200 * exitTravel}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -33.3])}deg)`,
+          transform: `translate(${titleSlideX - titleExitX}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + titleSlideY + impactBounce - 50 + titleExitY}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -33.3])}deg)`,
         }}
       >
         <div
