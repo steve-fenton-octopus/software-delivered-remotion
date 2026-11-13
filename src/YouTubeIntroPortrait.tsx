@@ -51,7 +51,7 @@ export const YouTubeIntroPortrait: React.FC = () => {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
   });
-  const chevronDrop = chevronExitProgress ** 3 * 2600;
+  const chevronDrop = chevronExitProgress ** 1.5 * 2600;
   const titleOpacity = interpolate(frame, [30, 39], [0, 1], {
     extrapolateLeft: 'clamp',
     extrapolateRight: 'clamp',
@@ -83,6 +83,7 @@ export const YouTubeIntroPortrait: React.FC = () => {
           style={{
             transform: `translateY(${interpolate(arrowProgress, [0, 1], [1900, 0])}px) scale(1.1)`,
             transformOrigin: 'center center',
+            overflow: 'visible',
           }}
         >
           <defs>
@@ -98,7 +99,7 @@ export const YouTubeIntroPortrait: React.FC = () => {
             </pattern>
           </defs>
           <path
-            d="M 540 960 L 1080 1320 L 1080 1920 L 0 1920 L 0 1320 Z"
+            d="M 540 960 L 1680 1708 L 1680 5000 L -600 5000 L -600 1708 Z"
             fill="url(#arrow-dots-portrait)"
             stroke="#05070a"
             strokeLinejoin="round"
@@ -110,13 +111,13 @@ export const YouTubeIntroPortrait: React.FC = () => {
       <div
         style={{
           position: 'absolute',
-          top: 850,
+          top: '50%',
           left: 0,
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
           opacity: titleOpacity,
-          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -180]) - 1080 * exitTravel}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 220]) + impactBounce + 1200 * exitTravel}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
+          transform: `translate(${interpolate(slideProgress, [0, 1], [0, -180]) - 1080 * exitTravel}px, calc(-50% + ${interpolate(titleProgress, [0, 1], [-36, 0]) + interpolate(slideProgress, [0, 1], [0, 118]) + impactBounce - 90 + 1200 * exitTravel}px)) scale(${interpolate(slideProgress, [0, 1], [1, 0.62])}) rotate(${interpolate(tiltProgress, [0, 1], [-3, -32])}deg)`,
         }}
       >
         <div
